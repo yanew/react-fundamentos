@@ -12,6 +12,6 @@ import ReactDOM from 'react-dom';
 //React 17
 
 ReactDOM.render(
-    <h1 id="titulo">Oie Yaneee!!</h1>,
+    <h1 id="titulo">Oie Yaneee</h1>,
     document.getElementById('root'),
 );
