@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
+import App from './App';
 //Teste do Babel - Inicio
 //const user = {};
 
@@ -12,6 +13,6 @@ import ReactDOM from 'react-dom';
 //React 17
 
 ReactDOM.render(
-    <h1 id="titulo">Oie Yaneee</h1>,
+    <App />,
     document.getElementById('root'),
 );
