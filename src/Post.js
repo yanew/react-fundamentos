@@ -15,6 +15,7 @@ export default function Post(props){
 }
 
 Post.PropTypes = {
+    titulo: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     subtitulo: PropTypes.shape({
         conteudo: PropTypes.string.isRequired,
