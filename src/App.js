@@ -6,17 +6,30 @@ import Header from './Header';
 const titPost = 'Música é demais!';
 
 const posts = [
-    {titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong"},
-    {titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence"},
-    {titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou"},
+    {id: Math.random(), titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong"},
+    {id: Math.random(), titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence"},
+    {id: Math.random(), titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou"},
 ];
 
 function App(){
+
+    function handleRefresh(){
+        posts.push({
+            id: Math.random(), 
+            titulo: `Titulo${posts.length+1}`, 
+            likes: 154, 
+            conteudo: `Texto${posts.length+1}`
+        });
+    }
+
     return (
         <>
             
             <Header>
-                <h2>Children</h2>
+                <h2>
+                    Posts da semana
+                    <button onClick={handleRefresh}>Atualizar</button>
+                </h2>
             </Header>    
 
             <hr/>
@@ -24,7 +37,7 @@ function App(){
             {
                 posts.map(post => (
                     <Post 
-                        key = {post.titulo}
+                        key = {post.id}
                         titulo = {post.titulo}
                         likes = {post.likes}
                         subtitulo = {{
