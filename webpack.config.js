@@ -18,7 +18,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/, // ou /\.jsx$/ para arquivos JSX
+        test: /\.jsx?$/, // faz babel-loader rodar para js ou jsx ou /\.jsx$/ para apenas arquivos JSX
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
