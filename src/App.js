@@ -43,6 +43,12 @@ function App(){
         //setPosts([]);
     }
 
+    function handleRemovePost(postId){
+        setPosts((prevState) => (
+            prevState.filter(post => post.id !== postId)
+        ));
+    }
+
     return (
         <>
             
@@ -59,8 +65,10 @@ function App(){
                 posts.map(post => (
                     <Post 
                         key = {post.id}
+                        id = {post.id}
                         titulo = {post.titulo}
                         likes = {post.likes}
+                        onRemove={handleRemovePost}
                         subtitulo = {{
                             conteudo: post.conteudo
                         }}
