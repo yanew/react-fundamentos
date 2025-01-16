@@ -18,10 +18,6 @@ export default function Post(props){
                         {props.post.read ? <s>{props.post.titulo}</s> : props.post.titulo}
                     </strong>
                     <br/>
-                    <strong>
-                        {props.post.read && <s>{props.post.titulo}</s>}
-                        {!props.post.read && props.post.titulo}
-                    </strong>
                     <button onClick={() => props.onRemove(props.id)}>Remover</button>
                     <br/>
                     <small>{props.post.subtitulo}</small>
