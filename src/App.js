@@ -8,9 +8,9 @@ const titPost = 'Música é demais!';
 function App(){
 
     const [posts, setPosts] = useState([
-        {id: Math.random(), titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong"},
-        {id: Math.random(), titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence"},
-        {id: Math.random(), titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou, ô misera!"},
+        {id: Math.random(), titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong", read: false},
+        {id: Math.random(), titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence", read: true},
+        {id: Math.random(), titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou, ô misera!", read: false},
     ]);
 
     function handleRefresh(){
@@ -55,7 +55,7 @@ function App(){
             <Header>
                 <h2>
                     Posts da semana
-                    <button onClick={handleRefresh}>Atualizar</button>
+                    <button onClick={handleRefresh}>Atualizar</button> 
                 </h2>
             </Header>    
 
@@ -65,13 +65,8 @@ function App(){
                 posts.map(post => (
                     <Post 
                         key = {post.id}
-                        id = {post.id}
-                        titulo = {post.titulo}
-                        likes = {post.likes}
                         onRemove={handleRemovePost}
-                        subtitulo = {{
-                            conteudo: post.conteudo
-                        }}
+                        post = {post}
                     />
                 ))
             }
