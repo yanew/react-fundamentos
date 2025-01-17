@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState, createContext } from "react";
 import Post from './Post';
 import Header from './Header';
+import { ThemeProvider } from './ThemeContext';
+
 
 const titPost = 'Música é demais!';
 
@@ -50,9 +51,8 @@ function App(){
     }
 
     return (
-        <>
-            
-            <Header>
+        <ThemeProvider>
+            <Header /*onToggleTheme = {handleToggleTheme}*/>
                 <h2>
                     Posts da semana
                     <button onClick={handleRefresh}>Atualizar</button> 
@@ -77,7 +77,7 @@ function App(){
                     subtitulo: 'é mesmo!'
                 }}/>  nesse cao aqui, lá no componente tem que chamar props.post.titulo*/}
 
-        </>
+        </ThemeProvider>
     );
 }
 

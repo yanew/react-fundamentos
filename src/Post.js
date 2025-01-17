@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PostHeader from "./PostHeader";
 
 export default function Post(props){
     /*if(props.post.read){
@@ -13,13 +14,18 @@ export default function Post(props){
             //: 
             <>
                 <article>
-                    <small>Likes: {props.post.likes}</small><br />
-                    <strong>
-                        {props.post.read ? <s>{props.post.titulo}</s> : props.post.titulo}
-                    </strong>
-                    <br/>
-                    <button onClick={() => props.onRemove(props.id)}>Remover</button>
-                    <br/>
+                    <PostHeader
+                        onRemove = {props.onRemove}
+                        post={
+                            {
+                                id: props.post.id,
+                                titulo: props.post.titulo,
+                                read: props.post.read,
+                                likes: props.post.likes
+                            }
+                        }
+                    />
+                    
                     <small>{props.post.subtitulo}</small>
                 </article>
                 <br/>
