@@ -4,6 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+  performance: {
+    hints: false,  // Desativa o warning sobre o limite de tamanho de arquivo
+  },
+  mode: 'development', 
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -29,8 +33,24 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader' ],
+        use: ['style-loader', 
+              {loader: 'css-loader',
+                options: {
+                  modules: true,
+                },
+              },
+            ],
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 
+              {loader: 'css-loader',
+                options: {
+                  modules: true,
+                },
+              },
+              'sass-loader', 
+            ],
       },
     ],
   },

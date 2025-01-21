@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import { ThemeContext } from './ThemeContext';
 
-export default function Header(props/*{titulo, children pode ser props aqui e la embaixo chamar props.children}*/){
+import * as styles from './Header.scss';//eh necessario colocar o styles se for trabalhar com css modules
+
+export default function Header(props/*{titulo, children - desestruturacao}*/){
     const {onToggleTheme} = useContext(ThemeContext);
     return (
         <div
@@ -11,7 +13,7 @@ export default function Header(props/*{titulo, children pode ser props aqui e la
                 background: '#ccc',
                 fontFamily: 'sans-serif',
             }}>
-            <h1>{props.titulo}</h1>
+            <h1 className={styles.title}>{props.titulo}</h1>
             <Button onClick={onToggleTheme}>
                 Mudar tema
             </Button>

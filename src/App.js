@@ -3,15 +3,16 @@ import Post from './Post';
 import Header from './Header';
 import { ThemeProvider } from './ThemeContext';
 
+import * as styles from './App.scss';//eh necessario colocar o styles se for trabalhar com css modules
 
 const titPost = 'Música é demais!';
 
 function App(){
 
     const [posts, setPosts] = useState([
-        {id: Math.random(), titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong", read: false},
-        {id: Math.random(), titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence", read: true},
-        {id: Math.random(), titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou, ô misera!", read: false},
+        {id: Math.random(), titulo: "Linkin Park: From Zero", likes: 67, conteudo: "Primeiro álbum com Emily Armstrong", read: false, removed: true},
+        {id: Math.random(), titulo: "Evanescence: The Bitter Truth", likes: 35, conteudo: "Álbum mais recente de Evanescence", read: true, removed: false},
+        {id: Math.random(), titulo: "Será que John Mayer vai lançar seu próximo álbum?", likes: 154, conteudo: "Esse álbum ainda não chegou, ô misera!", read: false, removed: false},
     ]);
 
     function handleRefresh(){
@@ -45,8 +46,12 @@ function App(){
     }
 
     function handleRemovePost(postId){
-        setPosts((prevState) => (
-            prevState.filter(post => post.id !== postId)
+        setPosts((prevState) => prevState.map(
+            post => (
+                post.id === postId
+                    ? { ...post, removed: true}
+                    : post
+            )
         ));
     }
 
