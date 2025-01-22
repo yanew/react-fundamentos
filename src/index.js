@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-import App from './App';
-import './index.scss';
+import GlobalStyle from './styles/global';
+
+import App from './components/App';
+//import './index.scss';
 //Teste do Babel - Inicio
 //const user = {};
 
@@ -14,6 +16,9 @@ import './index.scss';
 //React 17
 
 ReactDOM.render(
-    <App />,
+    <>
+        <GlobalStyle />
+        <App />
+    </>,
     document.getElementById('root'),
 );

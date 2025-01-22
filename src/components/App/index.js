@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
-import Post from './Post';
-import Header from './Header';
-import { ThemeProvider } from './ThemeContext';
+import Post from '../Post';
+import Header from '../Header';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 import * as styles from './App.scss';//eh necessario colocar o styles se for trabalhar com css modules
 
